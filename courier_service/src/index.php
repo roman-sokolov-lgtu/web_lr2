@@ -21,13 +21,11 @@
         const validDrivers = ["Иванов", "Петров", "Сидоров"];
         const validDeliveryTypes = ["Стандарт", "Экспресс"];
 
-        // Проверка обязательных полей
         if (!name || !phone || !city || !street || !house || !price || !driver || !deliveryType) {
             alert("Все обязательные поля должны быть заполнены!");
             return false;
         }
 
-        // Проверка допустимых значений для списков
         if (!validDrivers.includes(driver)) {
             alert("Выбран недопустимый водитель!");
             return false;
@@ -38,7 +36,6 @@
             return false;
         }
 
-        // Ограничения по длине
         if (name.length > 100) {
             alert("Имя клиента слишком длинное (макс. 100 символов)!");
             return false;
@@ -74,7 +71,6 @@
             return false;
         }
 
-        // Проверка форматов
         const phonePattern = /^[0-9\-\+\s]+$/;
         if (!phonePattern.test(phone)) {
             alert("Введите корректный номер телефона!");
