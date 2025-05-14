@@ -1,4 +1,11 @@
 <?php
+try {
+    $pdo = new PDO('mysql:host=db;dbname=mydb;charset=utf8', 'user', 'password');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Ошибка подключения к базе данных: " . $e->getMessage());
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $delivery_type = $_POST["delivery_type"] ?? '';
     $client_name = $_POST["client_name"] ?? '';
@@ -69,35 +76,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Ошибка: Стоимость должна быть положительным числом!");
     }
 
-    function sanitizeForCsv($value) {
-        if (preg_match('/^[=\+\-@]/', $value)) {
-            $value = "'" . $value;
-        }
-        return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    }
+    $sql = "INSERT INTO orders 
+        (delivery_type, client_name, driver, city, street, house, apartment, phone, price)
+        VALUES 
+        (:delivery_type, :client_name, :driver, :city, :street, :house, :apartment, :phone, :price)";
 
-    $sanitizedData = array_map('sanitizeForCsv', [
-        $delivery_type,
-        $client_name,
-        $driver,
-        $city,
-        $street,
-        $house,
-        $apartment,
-        $phone,
-        $price
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':delivery_type' => $delivery_type,
+        ':client_name' => $client_name,
+        ':driver' => $driver,
+        ':city' => $city,
+        ':street' => $street,
+        ':house' => $house,
+        ':apartment' => $apartment,
+        ':phone' => $phone,
+        ':price' => $price
     ]);
 
-    $file = fopen("orders.csv", "a");
-    if ($file) {
-        fputcsv($file, $sanitizedData);
-        fclose($file);
-        header("Location: success.php");
-        exit();
-    } else {
-        die("Ошибка: Не удалось сохранить заказ!");
-    }
+    header("Location: success.php");
+    exit();
 } else {
     die("Ошибка: Некорректный метод запроса!");
 }
-?>

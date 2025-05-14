@@ -179,6 +179,9 @@
             </div>
 
             <button type="submit">Оформить</button>
+            <a href="orderlist.php">
+                <button type="button">Посмотреть все заказы</button>
+            </a>
         </form>
     </div>
 </body>
