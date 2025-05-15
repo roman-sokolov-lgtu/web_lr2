@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Список заказов</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="container">
         <div class="header-row">
             <a href="/" class="back-button">←</a>
             <h2>Список заказов</h2>
-            <div class="spacer"></div>
         </div>
         <?php if (count($orders) > 0): ?>
             <table>

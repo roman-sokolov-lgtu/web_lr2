@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курьерская служба</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <script src="validate.js"></script>
 </head>
 <body>
     <div class="container">
-        <h2>Оформить заказ</h2>
+        <div class="header-row">
+            <h2>Оформить заказ</h2>
+            <a href="/user/profile" class="profile-button">👤</a>
+        </div>
+        
         <form name="orderForm" action="/order/create" method="post" onsubmit="return validateForm();">
             <div class="form-group">
                 <label for="delivery_type">Тип доставки:</label>

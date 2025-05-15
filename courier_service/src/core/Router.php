@@ -3,8 +3,8 @@ class Router {
     public function route($url) {
         $url = trim($url, '/');
         if (empty($url)) {
-            $controllerName = 'OrderController';
-            $methodName = 'index';
+            $controllerName = 'UserController';
+            $methodName = 'login';
         } else {
             $urlParts = explode('/', $url);
             

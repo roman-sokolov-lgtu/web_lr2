@@ -90,6 +90,11 @@ button:hover {
     font-size: 18px;
 }
 
+.full-width-button:hover {
+    cursor: pointer;
+    background-color:#f9f9f9;
+}
+
 
 .error {
     color: red;
@@ -116,6 +121,7 @@ a {
 
 a:hover {
     color: #45a049;
+    background-color: #d7f8d9;
 }
 
 table {
@@ -163,11 +169,27 @@ tr:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.profile-button {
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.1s ease;
+}
+
+
+.profile-button:active {
+    background-color: #c898cd;
+    color: white;
+    transform: scale(0.96);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
 .header-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    gap:5px;
 }
 
 .header-row h2 {
@@ -177,6 +199,37 @@ tr:hover {
     flex: 1;
 }
 
-.spacer {
-    width: 135px;
+
+
+.login-button{
+    margin-top:15px;
+}
+
+.register-button{
+    margin-top:15px;
+}
+
+a.exit-button {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #a13636;
+    padding: 8px 15px;
+    border: 1px solid #af4c4c;
+    border-radius: 5px;
+    transition: all 0.1s ease;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a.exit-button:hover {
+    background-color: #f8d7da;
+    color: #ad3636;
+}
+
+a.exit-button:active {
+    background-color: #c16969;
+    color: #eed6d6;
+    transform: scale(0.96);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
