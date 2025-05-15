@@ -84,7 +84,7 @@ button:hover {
 .full-width-button {
     display: block;
     width: 100%;
-    margin-top: 20px;
+    
     text-align: center;
     text-decoration: none;
     font-size: 18px;
@@ -113,7 +113,7 @@ button:hover {
 a {
     display: inline-block;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
     color: #4CAF50;
     text-decoration: none;
     font-size: 18px;
@@ -185,6 +185,10 @@ tr:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.profile-button:hover {
+    background-color: #d8b4dc;
+}
+
 .header-row {
     display: flex;
     align-items: center;
@@ -209,8 +213,11 @@ tr:hover {
     margin-top:15px;
 }
 
+
+
 a.exit-button {
     display: inline-block;
+    width: 100%;
     margin-bottom: 5px;
     font-size: 16px;
     color: #a13636;
@@ -232,4 +239,9 @@ a.exit-button:active {
     color: #eed6d6;
     transform: scale(0.96);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    margin-top: 15px; 
+    font-weight: bold;
 }

@@ -49,7 +49,7 @@ class UserController {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                header('Location: /order/index');
+                header('Location: /user/profile');
                 exit;
             } else {
                 $error = "Неверный логин или пароль!";

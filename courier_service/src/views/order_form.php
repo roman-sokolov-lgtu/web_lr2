@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курьерская служба</title>
     <link rel="stylesheet" href="/style.css">
-    <script src="validate.js"></script>
+    <script src="/validate.js"></script>
 </head>
 <body>
     <div class="container">
@@ -67,9 +67,6 @@
             </div>
 
             <button type="submit">Оформить</button>
-            <a href="/orderlist">
-                <button type="button">Посмотреть все заказы</button>
-            </a>
         </form>
     </div>
 </body>

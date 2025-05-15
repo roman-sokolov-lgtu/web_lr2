@@ -11,10 +11,10 @@ class Order {
             die("Ошибка подключения к базе данных: " . $e->getMessage());
         }
     }
-
-    public function create($data) {
-        $sql = "INSERT INTO orders (delivery_type, client_name, driver, city, street, house, apartment, phone, price)
-                VALUES (:delivery_type, :client_name, :driver, :city, :street, :house, :apartment, :phone, :price)";
+    
+    public function create($data, $userId) {
+        $sql = "INSERT INTO orders (delivery_type, client_name, driver, city, street, house, apartment, phone, price, user_id, created_at)
+                VALUES (:delivery_type, :client_name, :driver, :city, :street, :house, :apartment, :phone, :price, :user_id, NOW())";
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
@@ -26,7 +26,8 @@ class Order {
             ':house' => $data['house'],
             ':apartment' => $data['apartment'],
             ':phone' => $data['phone'],
-            ':price' => $data['price']
+            ':price' => $data['price'],
+            ':user_id' => $userId
         ]);
     }
 
@@ -34,5 +35,12 @@ class Order {
         $stmt = $this->pdo->query("SELECT * FROM orders ORDER BY id DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getByUserId($userId) {
+        $stmt = $this->pdo->prepare("SELECT * FROM orders WHERE user_id = :user_id ORDER BY id DESC");
+        $stmt->execute([':user_id' => $userId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>
